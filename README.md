@@ -12,7 +12,7 @@ $sql = new MYSQL('username','password','server','database');
 $sql->AddConnection("username", "password", "server", "database", false);
 
 //Query the database and receive an associative array with all the data from myTable
-$data = $sql->GetAssoc('SELECT * FROM myTable');
+$data = $sql->Get('SELECT * FROM myTable');
 
 //Review the received data:
 var_dump($data);
