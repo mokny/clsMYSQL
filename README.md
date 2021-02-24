@@ -38,4 +38,7 @@ $peoplecount = $sql->Count("people");
 
 //Escape a string for safety
 $str = $sql->Escape("This could be an injection");
+
+//Close all connections
+$sql->CloseAll()
 ```
