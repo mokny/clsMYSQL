@@ -156,7 +156,7 @@ class MYSQL {
   	* @return     Associative array
   	*/
 
-    public function GetAssoc($query, $conid = false) {
+    public function Get($query, $conid = false) {
         $ret = array();
         if (!$conid) $conid = $this->PrimaryDatabase;
         $result = mysqli_query($this->Connections[$conid], $query);
