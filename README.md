@@ -11,8 +11,8 @@ $sql = new MYSQL('username','password','server','database');
 //Add multiple connections. Last bool parameter makes this database the primary database for read requests if set to true
 $sql->AddConnection("username", "password", "server", "database", false);
 
-//Query the database and receive an associative array with all the data from myTable
-$data = $sql->Get('SELECT * FROM myTable');
+//Query the database and receive an associative array with all the data from ´people´
+$data = $sql->Get('SELECT * FROM people');
 
 //Review the received data:
 var_dump($data);
