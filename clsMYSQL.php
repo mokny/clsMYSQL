@@ -132,6 +132,22 @@ class MYSQL {
     }
 
     /**
+  	* Ping: Checks active DB Connection
+  	*
+  	* @author     Till Vennefrohne
+  	* @version    1.0
+  	* @access	  public
+  	* @param	  optional $conid 
+  	* @return     None
+  	*/
+
+    public function Ping($conid = false) {
+        if (!$conid) $conid = $this->PrimaryDatabase;
+        return mysqli_ping($this->Connections[$conid]);
+    }
+
+
+    /**
   	* Escape: Derivat of mysqli_escape_string
   	*
   	* @author     Till Vennefrohne
@@ -231,8 +247,7 @@ class MYSQL {
                 $fields[] = mysqli_real_escape_string($connection, $column) . " = " . "\"" . mysqli_real_escape_string($connection, $value) . "\"";
             }
       
-            $query = 'UPDATE ' . mysqli_real_escape_string($connection, $table) . ' SET (' . implode(' ,', $fields) . ') WHERE ' . $where;
-            
+            $query = 'UPDATE ' . mysqli_real_escape_string($connection, $table) . ' SET ' . implode(' ,', $fields) . ' WHERE ' . $where;
             $result = mysqli_query($connection, $query);    
         }       
     }
